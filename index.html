@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>A Special Invitation ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="A special romantic date invitation." />
+    <meta property="og:title" content="A Special Invitation ❤️" />
+    <meta property="og:description" content="A special romantic date invitation." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#fff0f3" />
+  </head>
+  <body>
+    <div id="heart-container" class="floating-hearts-container"></div>
+    <div id="root"></div>
+    <script>
+      // Floating hearts background logic
+      const container = document.getElementById('heart-container');
+      const heartCount = window.innerWidth < 600 ? 15 : 30;
+
+      for (let i = 0; i < heartCount; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+        heart.innerHTML = Math.random() > 0.5 ? '♡' : '♥';
+        
+        const size = Math.random() * 12 + 10;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 15 + 15;
+        const delay = Math.random() * 10;
+        
+        heart.style.fontSize = `${size}px`;
+        heart.style.left = `${left}%`;
+        heart.style.animationDuration = `${duration}s`;
+        heart.style.animationDelay = `-${delay}s`;
+        
+        const direction = Math.random() > 0.5 ? 1 : -1;
+        heart.style.setProperty('--direction', direction);
+
+        container.appendChild(heart);
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

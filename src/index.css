@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-handwriting: 'Caveat', cursive;
+  --color-romantic-50: #fff0f3;
+  --color-romantic-100: #ffe5ec;
+  --color-romantic-200: #ffc2d1;
+  --color-romantic-300: #ffb3c6;
+  --color-romantic-400: #ff8fab;
+  --color-romantic-500: #fb6f92;
+  --color-romantic-600: #e03a56;
+  --color-romantic-700: #c9184a;
+}
+
+html, body {
+  overscroll-behavior-y: none;
+  background-color: #121212;
+  color: white;
+  font-family: var(--font-sans);
+}
+
+/* Background animated glowing orbs */
+.circle1 { position: fixed; top: 5%; left: 20%; width: 9em; height: 9em; border-radius: 30%; box-shadow: 0 0 50px #48c0d8; background: linear-gradient(-25deg, #48b2d8, #41c4f4); animation: circle1Animate 10s infinite; pointer-events: none;}
+@keyframes circle1Animate { 50% { left: 33%; top: 4%; scale: 1.11; } }
+
+.circle2 { position: fixed; bottom: 5%; right: 30%; width: 14em; height: 14em; border-radius: 50%; box-shadow: 0 0 50px #5648d8; background: linear-gradient(-25deg, #5648d8, #8641f4); animation: circle2Animate 4s infinite; pointer-events: none;}
+@keyframes circle2Animate { 50% { bottom: 10%; right: 20%; } }
+
+.circle3 { position: fixed; top: 0%; left: 80%; width: 12em; height: 12em; border-radius: 50%; box-shadow: 0 0 50px #d848bb; background: linear-gradient(-25deg, #d848d1, #f441e2); animation: circle3Animate 14s infinite; pointer-events: none;}
+@keyframes circle3Animate { 50% { top: 3%; left: 85%; scale: 1.1; } }
+
+.circle4 { position: fixed; bottom: 15%; left: 10%; width: 10em; height: 10em; border-radius: 45%; box-shadow: 0 0 50px #d8488b; background: linear-gradient(-25deg, #d8487d, #f44195); animation: circle4Animate 14s infinite; pointer-events: none;}
+@keyframes circle4Animate { 50% { bottom: 6%; left: 5%; } }
+
+.circle5 { position: fixed; bottom: 15%; right: 10%; width: 5em; height: 5em; border-radius: 45%; box-shadow: 0 0 40px #cad848; background: linear-gradient(-25deg, #c7d848, #f4f441); animation: circle5Animate 10s infinite; pointer-events: none;}
+@keyframes circle5Animate { 50% { bottom: 6%; right: 5%; } }
+
+.circle6 { position: fixed; bottom: 50%; left: 10%; width: 5em; height: 5em; border-radius: 45%; box-shadow: 0 0 40px #56d848; background: linear-gradient(-25deg, #48d86a, #41f468); animation: circle6Animate 4s infinite; pointer-events: none;}
+@keyframes circle6Animate { 50% { bottom: 60%; left: 14%; } }
+
+.circle7 { position: fixed; top: 35%; right: 10%; width: 7em; height: 7em; border-radius: 50%; box-shadow: 0 0 30px #48d1d8; background: linear-gradient(-25deg, #48d8d8, #41c4f4); animation: circle7Animate 5s infinite; pointer-events: none;}
+@keyframes circle7Animate { 50% { top: 45%; right: 15%; } }
+
+.circle8 { position: fixed; bottom: 45%; left: 40%; width: 7em; height: 7em; border-radius: 50%; box-shadow: 0 0 30px #d1d848; background: linear-gradient(-25deg, #d8d648, #e8f441); animation: circle8Animate 8s infinite; pointer-events: none;}
+@keyframes circle8Animate { 50% { bottom: 40%; left: 35%; scale: .8; } }
+
+/* Glassmorphism main card wrapper */
+.glass-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 28px;
+  padding: 2.25rem 1.75rem;
+  box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.repo-title {
+  font-family: var(--font-handwriting);
+  font-size: 32px;
+  color: var(--color-romantic-600);
+  margin: 15px 0;
+  text-align: center;
+}
+
+.repo-btn {
+  outline: none;
+  width: 140px;
+  margin-top: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  color: var(--color-romantic-700);
+  background-color: var(--color-romantic-100);
+  font-size: 1.3em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--color-romantic-300);
+  border-radius: 18px;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.repo-btn:hover {
+  color: var(--color-romantic-600);
+  transform: scale(1.06);
+  background-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .repo-title { font-size: 30px; }
+  .repo-btn { width: 130px; }
+  .glass-wrapper { padding: 1.75rem 1.25rem; }
+}
+
+@media only screen and (max-width: 466px) {
+  .repo-title { font-size: 25px; }
+  .repo-btn { width: 100px; font-size: 1.1em; }
+}
+
+@media only screen and (max-width: 366px) {
+  .repo-title { font-size: 23px; }
+  .repo-btn { width: 110px; height: 50px; padding: 0; }
+}
+
+/* Floating Hearts Background */
+.floating-hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  color: var(--color-romantic-300);
+  opacity: 0.3;
+  animation: floatUp linear infinite;
+  transform-origin: center;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(calc(var(--direction) * 360deg)) translateX(calc(var(--direction) * 50px));
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-heart {
+    animation: none;
+    display: none;
+  }
+}
